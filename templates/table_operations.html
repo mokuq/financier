@@ -1,0 +1,30 @@
+
+<div name="history_table" id="history_table">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Summ</th>
+                <th>Description</th>
+                <th>Comment</th>
+                <th>Date and time</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for stock in hystorytable %}
+                {%if stock.summ >0%}
+                    <tr align="center" class="success" >
+    
+                                  <td>{{stock.summ | usd}}</td><td>{{stock.descr}}</td><td>{{stock.comment}}</td><td>{{stock.tranfere_date  }}</td>
+                    </tr>
+                {% else %}
+                    <tr align="center">
+                                  <td>{{stock.summ | usd}}</td><td>{{stock.descr}}</td><td>{{stock.comment}}</td><td>{{stock.tranfere_date  }}</td>
+                    </tr>
+                {% endif%}        
+            
+            {% endfor %}
+            
+         </tbody>
+    </table>
+</div>

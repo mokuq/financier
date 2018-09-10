@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+
+    <form action="" method="POST" name="reg_form">
+        <input  class="form-control" name="username" id="username" placeholder="Username" type="text"/>
+        <p></p>
+        <input class="form-control" name="password" id="password" placeholder="Password" type="password"/>
+        <p></p>
+        <input class="form-control" name="confirmation" id="confirmation" placeholder="Password (again)" type="password"/>
+        <p></p>
+        <input type="button" class="form-control" value="Register" onclick="return check_reg ()">
+
+    </form>
+    
+
+{% endblock %}

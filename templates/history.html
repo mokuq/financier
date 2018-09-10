@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+
+    
+    <div id="calendar" name="calendar" align="center" class="calendar">
+
+    Select date range:
+    <p>
+        <form action="" method="POST" name="forma_ti" >
+            <input type="text" id="TIME" name="TIME" class="form-control" placeholder="Start" type="text" onChange="javascript: select_quantity ();">
+    
+            <input type="text" id="TIME2" name="TIME2" class="form-control" placeholder="End" type="text" onChange="javascript: select_quantity ();">
+    
+        </form>
+    <p>
+    </div>
+    <div id="calendar_error"></div>
+    <div name="history_table" id='history_table'>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Summ</th>
+                <th>Description</th>
+                <th>Comment</t>
+                <th>Date and time</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for stock in hystorytable %}
+                {%if stock.summ >0%}
+                    <tr align="center" class="success" >
+    
+                                  <td>{{stock.summ | usd}}</td><td>{{stock.descr}}</td><td>{{stock.comment}}</td><td>{{stock.tranfere_date  }}</td>
+                    </tr>
+                {% else %}
+                    <tr align="center">
+                                  <td>{{stock.summ | usd}}</td><td>{{stock.descr}}</td><td>{{stock.comment}}</td><td>{{stock.tranfere_date  }}</td>
+                    </tr>
+                {% endif%}        
+            
+            {% endfor %}
+            
+         </tbody>
+    </table>
+    </div>
+{% endblock %}

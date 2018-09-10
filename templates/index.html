@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+<div name="main_fr" id="main_fr" align="left">
+    Welcome to the <b>Financier</b> - web site, where you can controll you home accounting.
+    <p>
+    Now you have<b>{% if sum<0%} <span style="color: #ea433b">{{sum |usd }}</span>{% else%} {{sum |usd }}{% endif%}</b>
+    </p>  
+    Here is your last 
+    <select class="form-control" name="quantity_rows" id="quantity_rows" onChange="javascript: select_quantity ();">
+    			<option value="10">10</option>
+    			<option value="20">20</option>
+    			<option value="50">50</option>
+    			<option value="all">all</option>
+    </select>
+    operations:
+</div>
+<div name="history_table" id="history_table">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Summ</th>
+                <th>Description</th>
+                <th>Comment</th>
+                <th>Date and time</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for stock in hystorytable %}
+                {%if stock.summ >0%}
+                    <tr align="center" class="success" >
+    
+                                  <td>{{stock.summ | usd}}</td><td>{{stock.descr}}</td><td>{{stock.comment}}</td><td>{{stock.tranfere_date  }}</td>
+                    </tr>
+                {% else %}
+                    <tr align="center">
+                                  <td>{{stock.summ | usd}}</td><td>{{stock.descr}}</td><td>{{stock.comment}}</td><td>{{stock.tranfere_date  }}</td>
+                    </tr>
+                {% endif%}        
+            
+            {% endfor %}
+            
+         </tbody>
+    </table>
+</div>
+
+{% endblock %}
