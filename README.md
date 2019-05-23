@@ -1,5 +1,5 @@
 # financier
-A web site engine, where you can controll you home accounting.
+A web site engine, where you can controll your home accounting.
 You can fix your home money flow (receiving and spending).
 
 It was a final project in a  course "CS50's Introduction to Computer Science".
